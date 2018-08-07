@@ -8,16 +8,13 @@ table {
 textarea {
     font: 8pt monospace;
     background-color: transparent;
-    height: calc(100% - 37px);
+    height: calc(100% - 43px);
     border: 0;
-    border-top: 1px dashed #aaa;
-    padding: 0 6px;
-    width: calc(100% - 12px);
+    border-top: 1px dashed grey;
+    padding: 6px 0 0 0;
+    width: 100%;
     display: block;
     resize: none;
-}
-.curvy-tabs-content {
-    padding: 0
 }
 label {
     white-space: nowrap;
@@ -31,28 +28,46 @@ span.feedback {
     margin-top: 12px;
     display: none;
 }
-input[type=button] {
+input[type=button].locals {
     background-color: grey;
     color: white;
-    border: 1px dotted transparent;
-}
-input[type=button].locals {
     cursor: help;
     margin: 9px;
     border-radius: 4px;
 }
 input[type=button].api {
+    background-color: grey;
+    color: white;
     font: 12px monospace;
-    border-radius: 4px;
+    border-radius: 6px;
     padding: 4px 7px;
     margin: 6px;
     float: right;
 }
-input[type=button]:hover {
+input[type=button].locals:hover, input[type=button].api:hover {
     background-color: #555;
 }
-input[type=button]:active {
+input[type=button].locals:active, input[type=button].api:active {
     color: #555;
     background-color: white;
     border-color: grey;
+}
+input[type=button].danger {
+    color: red;
+    border-color: red;
+    margin: 9px;
+    border-radius: 4px;
+}
+input[type=button].danger:hover {
+    color: white;
+    background-color: red;
+}
+
+input[type=button].danger:active {
+    background-color: yellow;
+}
+div.page-num {
+    display: inline-block;
+    width: 2em;
+    text-align: center;
 }

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="tutorial.css">
+  <script src="index.js"></script>
+</head>
+<body>
+
+<h2 class="continued">State tab</h2>
+
+<article class="activity">
+  <header><div>5</div>Edit a column property in the State tab</header>
+  <section>
+    Use grid state to set properties on the <code>prevclose</code> column:
+
+    <ol>
+      <li>Switch to the State tab.</li>
+      <li class="observe">The <code>prevclose</code> column already specifies a <code>format</code> property with value <code>'trend'</code>.</li>
+      <li>Change the value to <code>ft-in</code> (“foot-inch”).</li>
+      <li>Click the <code class="button">grid.setState(…)</code> button.</li>
+      <li class="observe">These values are now formatted as feet and inches, per the localizer’s <a href="https://fin-hypergrid.github.io/core/doc/localizerInterface.html#format" class="code">format</a> method.</li>
+    </ol>
+
+    The value of the <code>format</code> property must be a registered <em>localizer</em>.
+    We will discuss localizers and cell editors in more detail later on.
+    For now, be aware that grid cell editors respect localizers.
+    Because the edited value needs to be stored back to the data source in its unformatted state,
+    a cell is editable when its localizer implements the optional
+    <a href="https://fin-hypergrid.github.io/core/doc/localizerInterface.html#parse" class="code">parse</a> method.
+
+    <ol start="6">
+      <li>Open one of these formatted cells for editing by double-clicking it in the grid.</li>
+      <li>The cell editor opens.</li>
+    </ol>
+
+    Because the cell editor opened, we know the cell’s localizer implements <code>parse</code>. You can confirm this by switching to the Localizers tab and selecting <code>ft-in</code> from the drop-down.
+
+    <p>
+      Note that for a cell to be editable, in addition to the above, its <code>editable</code> property must be truthy (which is the default), and its <code>editor</code> property must name a registered cell editor (in this case by falling back to the grid's <code>editor</code> property, which is <code>textfield</code>).
+    </p>
+
+    <ol start="8">
+      <li>Edit the value.</li>
+      <li>Close the cell editor.</li>
+      <li class="observe">In the Data tab, the value has been updated but not with the formatted edit, but rather with a "raw" (unformatted) integer. The cell editor called the localizer’s <code>parse</code> method to transform the edited value back into a raw data value. This is why the localizer must have a <code>parse</code> method in order for the cell to be editable.</li>
+    </ol>
+  </section>
+</article>
+</body>
+</html>

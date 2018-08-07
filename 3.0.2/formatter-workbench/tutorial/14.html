@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="tutorial.css">
+  <script src="index.js"></script>
+</head>
+<body>
+<h2 class="continued">Localizers tab</h2>
+
+<h3>Binding a localizer to a cell</h3>
+Once a localizer is registered in the grid, it can be bound to a cell (or column, <i>etc.</i>) through its
+<a href="https://fin-hypergrid.github.io/core/doc/localizerInterface.html#format" target="api-docs" class="code">format</a> property.
+
+<h3>Binding localizers declaratively</h3>
+We have already seen how to do this using the state object (page 10).
+
+<h3>Binding localizers programmatically</h3>
+
+<pre>
+var propName = 'format'; // for example
+var propValue = 'deg'; // for example
+</pre>
+
+<h4>Example: Seting a grid property</h4>
+<pre>grid.properties[propName] = propValue;</pre>
+
+<h4>Example: Seting a column property</h4>
+<pre>var columnName = 'prevclose'; // for example
+var column = grid.behavior.columns[columnName];
+column.properties[propName] = propValue;</pre>
+
+<h4>Example: Seting a column property</h4>
+<pre>var rowIndex = 3; // for example the fourth row
+column.setCellProperty(rowIndex, propName, propValue);</pre>
+
+Alternative, when you don't already have a <code>column</code> object handy:
+
+<pre>var columnIndex = grid.behavior.columns[columnName].index;
+grid.behavior.setCellProperty(columnIndex, rowIndex, propName, propValue);</pre>

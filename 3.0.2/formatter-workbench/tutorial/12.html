@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="tutorial.css">
+  <script src="index.js"></script>
+</head>
+<body>
+<h2 class="continued">Localizers tab</h2>
+
+For a grid cell to use a localizer to format its value, three coding steps are required:
+<ol>
+  <li>
+    <strong>Define the localizer</strong><br>
+    Code the localizer in the Localizer tab's editor.
+  </li>
+  <li>
+    <strong>Register the localizer</strong><br>
+    Use the Localizer tab’s <span class="button">grid.localization.add(…)</span> button.
+  </li>
+  <li>
+    <strong>Reference the localizer</strong><br>
+    Cells reference the localizer by name in the <code>format</code> property.
+    Use the State tab's editor to set the <code>format</code> property declaratively, either for the whole grid or for a specific column or cell.
+  </li>
+</ol>
+
+The activity on the next page uses the workbench tabs to perform all three steps. On the page after that, we’ll repeat it programmatically in code.
+
+<article class="activity">
+  <header><div>6</div>Define &amp; register a new localizer</header>
+  <section>
+    <ol>
+      <li>Switch to the Localizers tab.</li>
+      <li>Select <strong>(New)</strong> from the <em>Load localizer</em> drop-down.</li>
+      <li>Rename it with a unique name by editing the <a href="https://fin-hypergrid.github.io/core/doc/localizerInterface.html#name"  target="api-docs" class="code">name</a> field.</li>
+      <li>Add additional local variables by declaring them at the top, as needed.</li>
+      <li>Code your localizer referring to examples and the <a href="https://fin-hypergrid.github.io/core/doc/localizerInterface.html" target="api-docs">localizer interface</a> documentation.</li>
+      <li>Be sure to assign your localizer to <code>module.exports</code>.</li>
+    </ol>
+
+    For example, here’s a file containing a localizer to show a “degrees” unit:
+    <pre>module.exports = {
+    name: 'deg',
+    format: function(s) { return s + '°' },
+    parse: function(s) { return parseInt(s); }
+}</pre>
+
+    Now register your new localizer with the grid:
+    <ol start="7">
+      <li>Click the <span class="button">grid.localization.add(…)</span> button.</li>
+    </ol>
+
+    The <span class="button">grid.localization.add(…)</span> button can also be used to update a localizer already known to the grid:
+
+    <ol start="8">
+      <li>Make a minor edit to your localizer code.</li>
+      <li>Click the <span class="button">grid.localization.add(…)</span> button again.</li>
+    </ol>
+  </section>
+</article>

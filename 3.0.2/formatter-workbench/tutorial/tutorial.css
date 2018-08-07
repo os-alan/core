@@ -1,0 +1,127 @@
+body {
+    margin: 8px;
+    column-gap: 2em;
+}
+h1, h2, h3, h4, h5 {
+    font-family: sans-serif;
+}
+li {
+    padding-bottom: .25em;
+}
+pre {
+    font: 8pt monospace;
+    background-color: #eee;
+    border: 1px solid #aaa;
+    padding: .8em;
+    white-space: pre-wrap;
+    margin: 1em 0;
+}
+span.button {
+    font-family: sans-serif;
+    background-color: #eee;
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 1px 4px;
+    margin: 0 2px;
+    font-size: 8pt;
+}
+a.code, code {
+    font-family: monospace;
+    font-weight: bold;
+    color: #444;
+    background-color: #ddd;
+    padding: 0 4px;
+    border-radius: 3px;
+}
+p {
+    margin: .6em 0;
+}
+h2 {
+    border-bottom: 2px solid black;
+    letter-spacing: 1px;
+}
+h2.continued:after {
+    content: '(continued)';
+    font-style: italic;
+    font-size: 10pt;
+    font-weight: normal;
+    margin-left: 1em;
+    letter-spacing: 0;
+}
+h3 {
+    border-bottom: 1px solid grey;
+    margin-bottom: .6em;
+}
+h4 {
+    color: #333;
+    margin-bottom: .3em;
+}
+div.note {
+    font-size: smaller;
+    margin: .9em 1em;
+    padding: .4em 1em;
+    border-left: 8px solid #ccc;
+}
+div.note:before {
+    content: 'Note: ';
+    font-weight: bold;
+}
+
+/* FOOTNOTES */
+
+table.footnote {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 .6em;
+}
+table.footnote > caption {
+    text-align: left;
+}
+table.footnote > caption > div {
+    width: 10em;
+    border-bottom: 1px solid black;
+}
+table.footnote td {
+    font-size: smaller;
+    text-align: justify;
+    vertical-align: top;
+}
+
+/* ACTIVITIES */
+article.activity ol {
+    font: 10pt / 1.4 sans-serif;
+    border: 1px dashed #aaa;
+    background-color: ivory;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    padding-right: 1em;
+    border-radius: 10px;
+}
+article.activity ol > li {
+    margin: .75em 0 .75em -1em;
+}
+article.activity ol > li.observe:before {
+    content: 'Observe: ';
+    font-style: italic;
+}
+article.activity > header:first-child {
+    position: relative;
+    margin: 1.5em 0;
+    background-color: #ccc;
+    padding: .75em 1em .75em 105px;
+    font: 13pt sans-serif;
+    font-weight: bold;
+}
+article.activity > header:first-child > div:first-child {
+    position: absolute;
+    left: .75em;
+    font-weight: normal;
+}
+article.activity > header:first-child > div:first-child:before {
+    content: 'Activity ';
+}
+article.activity > header:first-child > div:first-child:after {
+    content: ':';
+}

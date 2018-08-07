@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="tutorial.css">
+  <script src="index.js"></script>
+</head>
+<body>
+<h2 class="continued">Localizers tab</h2>
+
+<article class="activity">
+  <header><div>7</div>Define, register, and reference a localizer programmatically</header>
+  <section>
+    To add a localizer to a grid instance in code:
+    <ol>
+      <li>Open the dev console.</li>
+      <li>
+        To add a "percent" localizer to the grid, type:
+        <pre>var name = 'pct';
+function format(n) { return n.toFixed(1) + '%'; },
+function parse(s) { return parseInt(s); };
+grid.localization.add({ name, format, parse });</pre>
+    </ol>
+
+    <div class="note">
+      Localizers do not have to have a <a class="code" target="api-docs" href="https://fin-hypergrid.github.io/core/doc/localizerInterface.html#name">name</a> property because they can be named at registration time with an optional first parameter:
+
+      <pre>grid.localization.add(name, { format, parse });</pre>
+
+      <p>When specified, this optional first parameter overrides the given localizer’s <code>name</code> property (if present).</p>
+    </div>
+
+    In practice, you would likely define your localizer in a file,
+    with a <code>name</code> property,
+    and refer to that file with a CommonJS <code>require</code> call,
+    so your <code>add</code> call would actually look something like this:
+
+    <pre>grid.localization.add(require('./localizers/pct.js'));</pre>
+
+    <ol start="3">
+      <li>
+        Reference the localizer by name:
+        <pre>grid.behavior.columns.prevclose.properties.format = 'PCT';</pre>
+        Notice how localizer names are case-insensitive (same for all like all registered names).
+      </li>
+    </ol>
+
+    <div class="note">
+      Localizers registered programmatically are not of course reflected in the Localizer tab’s drop-down.
+    </div>
+
+    The grid will show the change on the next render. You can trigger a render by moving the mouse over the grid or programmatically:
+    <pre>grid.repaint();</pre>
+  </section>
+</article>

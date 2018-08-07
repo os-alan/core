@@ -3,6 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
     <meta http-equiv="Cache-Control" content="must-revalidate">
+    <title>Cell Borders demo - Hypergrid 3.0.2</title>
     <link rel="icon" type="image/png" href="../img/hypergrid-icon.png">
     <link rel="stylesheet" href="index.css">
     <script src="../build/fin-hypergrid.js"></script>
@@ -159,7 +160,7 @@ var opaqueRect = { // cell properties for use with OpaqueBorders cell renderer
 
 <h3>A note about this demo's modules</h3>
 <p>
-    Module standards in JavaScript are all over the place. There are many ways to split up code into separate files, both at build time as well as in the server. For this demo, I wanted to split up the code into distinctly served files so I could link to them here. But I didn't want to require a build just for file bundling, each `.js` file here defines a <code>window.onload</code> handler. They are called when the page is loaded, in the order referenced in `index.html`.
+    Module standards in JavaScript are all over the place. There are many ways to split up code into separate files, both at build time as well as in the server. For this demo, I wanted to split up the code into distinctly served <code>.js</code> files so I could link to them here. To avoid a build just to bundle them, I've defined a <code>window.onload</code> handler in each, called in the order referenced in `index.html` when the page is loaded.
 </p>
 </body>
 </html>
